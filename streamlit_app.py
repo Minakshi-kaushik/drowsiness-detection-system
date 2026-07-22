@@ -7,21 +7,25 @@ import cv2
 import numpy as np
 import streamlit as st
 from PIL import Image
+from ultralytics import YOLO
 
 from inference.detect_image import ImageDetector
 from inference.detect_video import VideoDetector
 
+# Download YOLO model automatically on first run
+if not os.path.exists("yolov8s.pt"):
+    YOLO("yolov8s.pt")
 
 SUPPORTED_IMAGE_TYPES = {"jpg", "jpeg", "png"}
 SUPPORTED_VIDEO_TYPES = {"mp4", "avi", "mov"}
 
 
-@st.cache_resource
+@st.cache_resource(show_spinner="Loading AI models...")
 def get_image_detector() -> ImageDetector:
     return ImageDetector()
 
 
-@st.cache_resource
+@st.cache_resource(show_spinner="Loading AI models...")
 def get_video_detector() -> VideoDetector:
     return VideoDetector()
 
