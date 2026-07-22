@@ -8,7 +8,7 @@ Central configuration file for the Drowsiness Detection System.
 # Model Paths
 # =====================================================
 
-YOLO_MODEL = "models/yolo/yolov8s.pt"
+YOLO_MODEL = "yolov8s.pt"
 EYE_MODEL = "models/eye/eye_state_model.keras"
 
 AGE_PROTO = "models/age/deploy_age.prototxt"
