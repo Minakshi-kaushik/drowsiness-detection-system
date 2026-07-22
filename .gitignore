@@ -1,0 +1,111 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual Environment
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Outputs
+outputs/
+outputs/images/*
+outputs/videos/*
+outputs/*.jpg
+outputs/*.png
+outputs/*.mp4
+
+# Pytest
+.pytest_cache/
+.coverage
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Models (ignore only if too large)
+*.pt
+*.pth
+*.onnx
+
+# Large model files
+*.caffemodel
+*.pb
+*.tflite
+
+# -----------------------------
+# Virtual Environment
+# -----------------------------
+venv/
+.env
+
+# -----------------------------
+# Python
+# -----------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# -----------------------------
+# IDE
+# -----------------------------
+.vscode/
+.idea/
+
+# -----------------------------
+# Logs
+# -----------------------------
+logs/
+*.log
+
+# -----------------------------
+# Outputs
+# -----------------------------
+outputs/
+outputs/images/
+outputs/videos/
+
+# -----------------------------
+# Datasets
+# -----------------------------
+datasets/
+!datasets/README.md
+!datasets/.gitkeep
+
+# -----------------------------
+# Models    
+-----------------------------
+models/**/*.pt
+models/**/*.pth
+models/**/*.onnx
+models/**/*.weights
+models/**/*.h5
+
+
+!models/age/**
+!models/yolov8s.pt
+
+# -----------------------------
+# OS Files
+# -----------------------------
+.DS_Store
+Thumbs.db
+
+# Models
+models/age/*.caffemodel
+models/age/*.prototxt
+models/yolo/*.pt
