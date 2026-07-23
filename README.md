@@ -1,162 +1,199 @@
-# 💤 AI Drowsiness Detection System
+<div align="center">
 
-> An AI-powered computer vision application that detects drowsiness in people from images and videos using YOLOv8, MediaPipe Face Mesh, and Eye Aspect Ratio (EAR) analysis.
+# 🚗 AI Drowsiness Detection System
 
----
+### AI-Powered Driver Drowsiness Detection using YOLOv8, MediaPipe & OpenCV
 
-## 📌 Overview
+<p>
+An intelligent Computer Vision system capable of detecting awake and sleeping drivers from images and videos with a production-ready Desktop and Web interface.
+</p>
 
-The **AI Drowsiness Detection System** is a computer vision application designed to detect whether a person is **Awake** or **Drowsy** from uploaded images and videos.
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python)
+![YOLOv8](https://img.shields.io/badge/YOLOv8-Ultralytics-red?style=for-the-badge)
+![MediaPipe](https://img.shields.io/badge/MediaPipe-Face%20Mesh-green?style=for-the-badge)
+![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-orange?style=for-the-badge)
+![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-red?style=for-the-badge&logo=pytorch)
+![Streamlit](https://img.shields.io/badge/Streamlit-Web%20App-FF4B4B?style=for-the-badge&logo=streamlit)
+![Tkinter](https://img.shields.io/badge/Tkinter-Desktop%20GUI-blueviolet?style=for-the-badge)
 
-The system combines **YOLOv8** for person detection, **MediaPipe Face Mesh** for facial landmark extraction, and **Eye Aspect Ratio (EAR)** analysis to determine eye closure and identify signs of drowsiness.
-
-The project is available as both a **Desktop Application (Tkinter)** and a **Web Application (Streamlit)** using a shared AI inference pipeline.
-
----
-
-# ✨ Features
-
-- ✅ Person Detection using YOLOv8
-- ✅ Face Detection using MediaPipe
-- ✅ Facial Landmark Extraction
-- ✅ Eye Aspect Ratio (EAR) Calculation
-- ✅ Drowsiness Detection
-- ✅ Multiple Person Detection
-- ✅ Image Detection
-- ✅ Video Detection
-- ✅ Desktop GUI (Tkinter)
-- ✅ Web Application (Streamlit)
-- ✅ Modular Production-Ready Architecture
+</div>
 
 ---
 
-# 🏗️ Project Architecture
+# 📖 Overview
 
+Driver drowsiness is one of the leading causes of road accidents worldwide. This project uses **Deep Learning** and **Computer Vision** techniques to monitor drivers and identify signs of drowsiness by analyzing eye landmarks.
+
+The application supports both **single-person** and **multi-person** scenarios and provides real-time visual feedback through annotated images and videos.
+
+---
+
+# ✨ Key Features
+
+- 🚗 Driver Drowsiness Detection
+- 👥 Multiple Person Detection
+- 😀 Face Detection using MediaPipe
+- 👁 Eye Aspect Ratio (EAR) Based Sleep Detection
+- 🧠 Intelligent Detection Pipeline
+- 🎥 Video Processing
+- 🖼 Image Processing
+- 📊 Detection Summary
+- 🎯 Confidence Score
+- 🖍 Bounding Box Visualization
+- 💻 Tkinter Desktop GUI
+- 🌐 Streamlit Web Interface
+- 📁 Automatic Output Saving
+
+---
+
+# 🖼 Demo
+
+## Desktop GUI
+
+<p align="center">
+
+<img src="screenshots/gui.png" width="800">
+
+</p>
+
+---
+
+## Streamlit Web App
+
+<p align="center">
+
+<img src="screenshots/streamlit.png" width="800">
+
+</p>
+
+---
+
+## Detection Output
+
+<p align="center">
+
+<img src="screenshots/output1.png" width="700">
+
+</p>
+
+
+
+---
+
+# 🏗 System Architecture
+
+```text
+                Input Image / Video
+                        │
+                        ▼
+          YOLOv8 Person Detection
+                        │
+                        ▼
+         MediaPipe Face Detection
+                        │
+                        ▼
+      Facial Landmark Extraction
+                        │
+                        ▼
+       Eye Aspect Ratio Calculation
+                        │
+                        ▼
+      Awake / Sleeping Classification
+                        │
+                        ▼
+      Detection Summary + Annotation
+                        │
+                        ▼
+         Save Processed Output
 ```
-Input Image / Video
-        │
-        ▼
-YOLOv8 Person Detection
-        │
-        ▼
-Crop Each Person
-        │
-        ▼
-MediaPipe Face Detection
-        │
-        ▼
-Face Landmark Detection
-        │
-        ▼
-EAR Calculation
-        │
-        ▼
-Sleep Classification
-        │
-        ▼
-Annotated Output
-```
+
+---
+
+# 🛠 Tech Stack
+
+| Category | Technology |
+|------------|------------|
+| Language | Python |
+| Object Detection | YOLOv8 |
+| Face Detection | MediaPipe |
+| Image Processing | OpenCV |
+| Deep Learning | PyTorch |
+| Numerical Computing | NumPy |
+| Desktop GUI | Tkinter |
+| Web Interface | Streamlit |
+| Visualization | Matplotlib |
 
 ---
 
 # 📂 Project Structure
 
-```
-Drowsiness-Detection-System/
+```text
+Drowsiness-Detection-System
 │
 ├── assets/
+│   ├── sample_images/
+│   └── sample_videos/
+│
 ├── config/
-├── datasets/
-├── docs/
+│
 ├── gui/
+│
 ├── inference/
 │   ├── detect_person.py
 │   ├── detect_face.py
 │   ├── detect_sleep.py
+│   ├── detect_age.py
 │   ├── detect_image.py
 │   ├── detect_video.py
-│   ├── detect_age.py
 │   └── pipeline.py
 │
-├── logs/
-├── models/
-├── outputs/
 ├── services/
+│
 ├── tests/
+│
 ├── training/
+│
 ├── utils/
 │
-├── main.py
 ├── streamlit_app.py
+├── main.py
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-# ⚙️ Tech Stack
-
-### Programming Language
-
-- Python 3.11+
-
-### Computer Vision
-
-- OpenCV
-- MediaPipe
-
-### Deep Learning
-
-- YOLOv8 (Ultralytics)
-
-### Machine Learning
-
-- NumPy
-
-### User Interface
-
-- Tkinter
-- Streamlit
-
-### Utilities
-
-- Pillow
-- Logging
-- pathlib
-
----
-
 # 🚀 Installation
 
-Clone the repository
+Clone Repository
 
 ```bash
-git clone https://github.com/Minakshi-kaushik/drowsiness-detection-system
+git clone https://github.com/Minakshi-kaushik/drowsiness-detection-system.git
 
-cd Drowsiness-Detection-System
+cd drowsiness-detection-system
 ```
 
-Create a virtual environment
+Create Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
-Activate the environment
+Activate Environment
 
-### Windows
+Windows
 
 ```bash
 venv\Scripts\activate
 ```
 
-### Linux / macOS
+Linux / macOS
 
 ```bash
 source venv/bin/activate
 ```
 
-Install dependencies
+Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -164,7 +201,9 @@ pip install -r requirements.txt
 
 ---
 
-# ▶️ Run Desktop Application
+# ▶ Running the Application
+
+### Desktop GUI
 
 ```bash
 python main.py
@@ -172,7 +211,7 @@ python main.py
 
 ---
 
-# 🌐 Run Streamlit Application
+### Streamlit
 
 ```bash
 streamlit run streamlit_app.py
@@ -180,99 +219,121 @@ streamlit run streamlit_app.py
 
 ---
 
-# 📸 Supported Inputs
+# 📊 Detection Pipeline
 
-### Images
+✔ Person Detection
 
-- JPG
-- JPEG
-- PNG
+↓
 
-### Videos
+✔ Face Detection
 
-- MP4
-- AVI
-- MOV
+↓
+
+✔ Eye Landmark Extraction
+
+↓
+
+✔ EAR Calculation
+
+↓
+
+✔ Sleep Detection
+
+↓
+
+✔ Detection Summary
+
+↓
+
+✔ Annotated Output
 
 ---
 
-# 📊 Detection Output
+# 📈 Sample Detection
 
-For every detected person, the system provides:
-
-- Person ID
-- Bounding Box
-- Face Detection Status
-- Awake / Drowsy Classification
-- Detection Confidence
-- Eye Aspect Ratio (EAR)
+| Metric | Value |
+|----------|---------|
+| Total People | 1 |
+| Sleeping | 0 |
+| Awake | 1 |
+| Confidence | 84.2% |
+| EAR | 0.407 |
 
 ---
 
-# 📷 Sample Output
-![alt text](image.png)
+# 📁 Output
 
-Example:
+Generated outputs are automatically saved inside:
 
+```text
+outputs/images/
+outputs/videos/
 ```
-Original Image
-
-↓
-
-Person Detected
-
-↓
-
-Face Detected
-
-↓
-
-Status: Awake
-Confidence: 84.2%
-```
 
 ---
 
-# 📦 Future Improvements
+# 🎯 Future Scope
 
-The project has been designed with a modular architecture to support future enhancements, including:
-
-- Real-Time Webcam Detection
-- Driver Monitoring System
-- Audio Alarm for Drowsiness
-- Face Recognition
-- Age Prediction
-- Emotion Detection
-- Driver Analytics Dashboard
-- Cloud Deployment
-- Mobile Application
+- ✅ Live Webcam Detection
+- ✅ Driver Alert Alarm
+- ✅ Head Pose Estimation
+- ✅ Blink Rate Analysis
+- ✅ Face Recognition
+- ✅ Driver Fatigue Score
+- ✅ Mobile Application
+- ✅ Cloud Deployment
 
 ---
 
-# 🧪 Testing
+# 🤝 Contributing
 
-Run all tests using:
+Contributions are always welcome.
+
+1. Fork the repository
+
+2. Create your feature branch
 
 ```bash
-pytest
+git checkout -b feature-name
 ```
+
+3. Commit changes
+
+```bash
+git commit -m "Add new feature"
+```
+
+4. Push
+
+```bash
+git push origin feature-name
+```
+
+5. Create a Pull Request
 
 ---
 
 # 📜 License
 
-This project is intended for educational, research, and portfolio purposes.
+This project is developed for educational and research purposes.
 
 ---
 
 # 👩‍💻 Author
 
-**Minakshi Kaushik**
+## **Minakshi Kaushik**
 
-B.Tech Computer Science Engineering (CSE)
+**B.Tech Computer Science Engineering**
 
-Indira Gandhi Delhi Technical University for Women (IGDTUW)
+**Indira Gandhi Delhi Technical University for Women (IGDTUW)**
+
+GitHub:
+https://github.com/Minakshi-kaushik
 
 ---
 
-# ⭐ If you found this project useful, consider giving it a star on GitHub!
+<div align="center">
+
+### ⭐ If you like this project, don't forget to Star the repository!
+
+</div>
