@@ -1,13 +1,19 @@
+-c constraints.txt
+
 streamlit
-opencv-python-headless==4.10.0.84
-ultralytics
-mediapipe
+
 numpy==1.26.4
-pillow
+opencv-python-headless==4.10.0.84
+
+ultralytics==8.3.189
+mediapipe==0.10.14
+
 torch
 torchvision
+
+pillow
 pandas
 scipy
+matplotlib
 PyYAML
 requests
-matplotlib
