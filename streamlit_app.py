@@ -106,7 +106,7 @@ def display_image_result(annotated_image: np.ndarray) -> None:
 
 st.set_page_config(page_title="AI Drowsiness Detection System", layout="wide")
 
-st.title("AI Drowsiness Detection System")
+st.title("AI Drowsiness Detection System v2")
 
 with st.sidebar:
     st.header("About")
