@@ -69,28 +69,34 @@ def render_person_cards(results: List[Dict[str, Any]]) -> None:
         st.info("No people detected.")
         return
 
-    face_detected = any(
-        person.get("face_detected") for person in results if isinstance(person, dict)
-    )
-    if not face_detected:
-        st.info("No face detected.")
-        return
-
     for index, person in enumerate(results, start=1):
+        if not person.get("face_detected", False):
+            st.warning(f"Person #{index}: Face not detected.")
+            continue
+
         status = str(person.get("sleep_status") or "Unknown")
         is_sleeping = status.lower() in {"sleeping", "sleepy"}
         confidence = person.get("confidence")
+
         card_color = "#f8d7da" if is_sleeping else "#d4edda"
         border_color = "#dc3545" if is_sleeping else "#28a745"
 
-        with st.container():
-            st.markdown(
-                f"<div style='border:2px solid {border_color}; border-radius:8px; padding:12px; background-color:{card_color}; margin-bottom:10px;'>"
-                f"<b>Person #{index}</b><br>"
-                f"<b>Status:</b> {status}<br>"
-                f"<b>Confidence:</b> {format_confidence(confidence)}</div>",
-                unsafe_allow_html=True,
-            )
+        st.markdown(
+            f"""
+<div style="border:2px solid {border_color};
+padding:12px;
+border-radius:8px;
+background:{card_color};
+margin-bottom:12px;">
+
+<b>Person #{index}</b><br>
+<b>Status:</b> {status}<br>
+<b>Confidence:</b> {format_confidence(confidence)}
+
+</div>
+""",
+            unsafe_allow_html=True,
+        )
 
 
 def display_image_result(annotated_image: np.ndarray) -> None:
@@ -141,6 +147,7 @@ if input_type == "Image":
 
                     detector = get_image_detector()
                     annotated_image, results, output_path = detector.process(temp_path)
+
                     if annotated_image is None or annotated_image.size == 0:
                         st.error("Processing failed.")
                     else:
