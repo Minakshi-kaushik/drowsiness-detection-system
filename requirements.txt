@@ -2,7 +2,7 @@ streamlit
 opencv-python-headless==4.10.0.84
 ultralytics
 mediapipe
-numpy
+numpy==1.26.4
 pillow
 torch
 torchvision
